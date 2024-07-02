@@ -1,9 +1,9 @@
 schema_version = "1.0.0"
 
 id = "tiny_backup"
-version = "1.0.0"
+version = "1.0.1"
 name = "Tiny Backup"
-tagline = "Puts backups into a local folder"
+tagline = "A minimalistic backup solution"
 maintainer = "Thane5"
 type = "add-on"
 website = "https://github.com/Thane5/blender-tiny-backup"

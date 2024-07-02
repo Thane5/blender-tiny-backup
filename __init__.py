@@ -7,7 +7,7 @@ class PrefixSavePreferences(bpy.types.AddonPreferences):
 
     # Preferences setting to configure the backup folder name 
     backupFolder : bpy.props.StringProperty(name="Backup folder name",
-                description="The exact name of the folder where backups will be saved in",
+                description="The name of the folder where backups will be saved in",
                 default="backup")
     
     def draw(self, context):
@@ -21,7 +21,7 @@ def timestamp():
     return datetime.datetime.fromtimestamp(time.time())
 
 class PrefixFileSave(bpy.types.Operator):
-    """Set a filename prefix before saving the file"""
+    """Create a file backup"""
     bl_idname = "wm.save_prefix"
     bl_label = "Save Backup"
 

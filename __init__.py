@@ -32,13 +32,16 @@ class PrefixFileSave(bpy.types.Operator):
 
         outname = eval(prefix) + bpy.path.basename(bpy.data.filepath)
         outpath = os.path.join(os.path.dirname(bpy.path.abspath(bpy.data.filepath)), addon_prefs.backupFolder)
-        print(os.path.join(outpath, outname))
 
-        # If no /backup folder exists, create one
-        if not(os.path.exists(outpath)):
-            os.mkdir(outpath)
 
-        return bpy.ops.wm.save_as_mainfile(filepath=os.path.join(outpath, outname), check_existing=True, copy=True)
+        if bpy.data.is_saved:
+            # If no backup folder exists, create one
+            if not(os.path.exists(outpath)):
+                os.mkdir(outpath)
+
+            return bpy.ops.wm.save_as_mainfile(filepath=os.path.join(outpath, outname), check_existing=True, copy=True)
+        else: 
+            return {"CANCELLED"}
 
 
 def menu_save_prefix(self, context):
